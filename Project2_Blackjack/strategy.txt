@@ -1,0 +1,74 @@
+    //create deck of 52  cards with class
+    //3 attributes name, suit rank
+    class Cards{
+        public:
+            const char *name;
+            const char *suit;
+            int rank;
+
+            Cards(const char *name, const char *suit, int rank){
+                this->name = name;
+                this->suit = suit;
+                this->rank = rank;
+            }
+
+            //getters
+            void name_of_card(){
+                std::cout<<rank<<" of "<<suit<<std::endl;
+            }
+            
+    };
+
+    class Cards diamond9("diamond9", "diamond", 9);
+    diamond9.name_of_card();
+
+    //class Cards Deck[52];
+    class Cards zero_card; //not able to declare before deck[52] don't know why
+    zero_card.set_rank(0);
+
+array_funcs
+class Cards deck_card_pop(class Cards *input_array, int position, int input_array_size){
+    class Cards *temp_array;
+    class Cards removed_one = input_array[position-1];
+    //n-1 4
+    std::cout<<"addr before "<<input_array<<std::endl; //+++++++++++++
+    temp_array = new class Cards[input_array_size-1];
+    for(int i = 0; i<position-1;i++){     //pos-1 because index from 0 
+        temp_array[i] = input_array[i];    //here i ends at pos-2
+        //temp_array[0].get_name_of_card();
+    }
+    for(int i = position-1;i<input_array_size-1;i++){   
+        temp_array[i] = input_array[i + 1];
+        //temp_array[position-1].get_name_of_card();
+    }
+    /*for(int i = 0;i<input_array_size-1;i++){   //everything works upto here but deck not changing
+        temp_array[i].get_name_of_card();     ///--------++++++++=-------
+    }*/
+    input_array_size = input_array_size-1; //new array length
+    delete[] input_array;
+    //input_array = new class Cards[input_array_size];
+    input_array = temp_array;
+    std::cout<<"addr after "<<input_array<<std::endl; //+++++++++++++
+    for(int i = 0;i<input_array_size;i++){   //everything works upto here but deck not changing
+        input_array[i].get_name_of_card();     ///--------++++++++=-------
+    }
+    delete[] temp_array;
+    /*for(int i = 0;i<input_array_size;i++){   //everything works upto here but deck not changing
+        input_array[i].get_name_of_card();     
+    }*/
+
+    return removed_one;   //this will give the popped card from deck
+}
+
+void add_to_hand(class Cards *input_array, class Cards input_card, int input_array_size){    
+        //add elements
+    
+    //int *d = new int[n+1];
+    class Cards *temp_array = new class Cards[input_array_size+1]; //initialisation won't be possible with 
+    temp_array = input_array;                                      //this
+    input_array_size = input_array_size+1; //new size
+    //delete input_array;
+    temp_array[input_array_size-1] = input_card; //appending on last position 
+    input_array = temp_array;  
+ 
+}

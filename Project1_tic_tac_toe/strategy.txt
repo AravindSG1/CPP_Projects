@@ -1,0 +1,11 @@
+1.Create board function
+
+2.ask first player to choose side x or o
+
+3.check if input is x or o and if appropiate input recieved store in correct place or ask again to the correct 
+player that is x or o
+
+4.function to check if the game patterns fullfilled the condition for win if not ask for next input, go
+to step 3
+
+5.check if all key positions from 1 to 9 is used, then show win or draw 
