@@ -113,6 +113,13 @@ int main()
             }
 
         }
+        else{
+                print_player_cards(player_hand, player_hand_size, player_sum);
+                print_dealer_cards(dealer_hand, dealer_hand_size, dealer_sum);                          
+                std::cout<<"Player bust Dealer wins"<<std::endl;
+                winner_flag = 1;  //to give chips to dealer
+                break;
+            }
        
     }
     if(!winner_flag){
